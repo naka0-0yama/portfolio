@@ -59,9 +59,27 @@ export default function ProjectsPage() {
               {category.title}
             </h3>
             {category.isPrivate ? (
-              <span className="px-3 py-1 text-xs font-mono font-medium bg-zinc-900 text-zinc-300 rounded border border-zinc-800 hover:border-zinc-500 hover:text-zinc-100 transition-colors cursor-default">
-                Private Project
-              </span>
+              <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-zinc-200">
+                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 text-zinc-300">
+                      <RepoIcon size={16} />
+                    </span>
+                    <span className="font-medium">{category.title}</span>
+                  </div>
+
+                  <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-amber-300">
+                    Private
+                  </span>
+                </div>
+
+                <p className="mt-3 text-sm text-zinc-400">{category.description}</p>
+
+                <div className="mt-3 flex items-center justify-between text-xs text-zinc-500">
+                  <span>Private Project</span>
+                  <span className="text-zinc-400">In Progress</span>
+                </div>
+              </div>
             ) : null}
             {category.repoUrl && category.repoPath && !category.isPrivate ? (
               <Link
@@ -80,9 +98,15 @@ export default function ProjectsPage() {
                   />
 
                   <div className="min-w-0 flex-1">
-                    <div className="flex items-center gap-2 text-zinc-100">
-                      <RepoIcon size={16} />
-                      <span className="truncate font-medium">{category.repoPath}</span>
+                    <div className="flex items-center justify-between gap-2 text-zinc-100">
+                      <div className="flex min-w-0 items-center gap-2">
+                        <RepoIcon size={16} />
+                        <span className="truncate font-medium">{category.repoPath}</span>
+                      </div>
+
+                      <span className="shrink-0 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-300">
+                        Public
+                      </span>
                     </div>
                   </div>
                 </div>
