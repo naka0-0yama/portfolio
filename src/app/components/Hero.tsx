@@ -1,9 +1,9 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/config/site";
+import ScrollButton from './ScrollButton';
 
 // --- Framer Motion用の設定 ---
 // 親要素がフェードインするときに、中の子要素を時間差で出現させる設定
@@ -34,7 +34,7 @@ export default function Hero() {
   // パタパタ感を出す例にします。
   
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 text-white py-20">
+    <section id="hero"className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gray-900 text-white py-20">
               {/* --- 1. 背景の美しいグラデーションとブラー --- */}
       {/* 控えめなグリッド背景（オプションでテック感を出す場合） */}
       <div className="absolute inset-0 bg-grid-white bg-[size:40px_40px] pointer-events-none" />
@@ -90,12 +90,12 @@ export default function Hero() {
 
         {/* action buttons */}
         <motion.div variants={itemVariants} className="flex gap-4">
-          <Link href="#projects" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20">
+          <ScrollButton targetId="projects" className="px-8 py-3 bg-blue-600 text-white font-semibold rounded-full hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20">
             View My Works
-          </Link>
-          <Link href="#contact" className="px-8 py-3 bg-gray-800 border border-gray-700 text-white font-semibold rounded-full hover:bg-gray-700 transition-colors">
+          </ScrollButton>
+          <ScrollButton targetId="contact" className="px-8 py-3 bg-gray-800 border border-gray-700 text-white font-semibold rounded-full hover:bg-gray-700 transition-colors">
             Contact Me
-          </Link>
+          </ScrollButton>
         </motion.div>
 
       </motion.div>
