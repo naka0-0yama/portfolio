@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 私のポートフォリオ
 
-## Getting Started
+このサイトは、私自身のことを伝えるためのポートフォリオです。
+技術や制作物、考え方をわかりやすくまとめ、仕事の依頼や採用、コラボレーションのきっかけにつなげることを目的にしています。
 
-First, run the development server:
+## 自己紹介
+
+私は、Web開発とデザインの両方に興味を持ち、使いやすく、見た目にも魅力的なサービスを作ることを目指しています。
+
+このポートフォリオでは、私の強みやこれまでの取り組み、作成した作品を紹介します。
+「自分が何をできるのか」「どんな価値を提供できるのか」を、シンプルで伝わりやすい形でまとめています。
+
+## このサイトで伝えること
+
+- 自分の名前と基本情報
+- 経歴やこれまでの経験
+- 使える技術やスキル
+- 制作したプロジェクト
+- 趣味や価値観など、人物像
+
+## 技術スタック
+
+- Next.js
+- React
+- TypeScript
+- Tailwind CSS
+- HTML / CSS / JavaScript
+- Git / GitHub
+
+## 作品の方向性
+
+このポートフォリオでは、次のような価値を大切にしています。
+
+- 見た目の美しさだけでなく、使いやすさを重視する
+- ユーザー目線で設計する
+- シンプルでわかりやすい情報設計を心がける
+- 継続的に改善しながら作品を育てていく
+
+## 収録予定のコンテンツ
+
+- About Me
+- Skills
+- Projects
+- Experience
+
+## プロジェクト構成
+
+
+## セットアップ
+
+依存関係をインストールします。
+
+```bash
+npm install
+```
+
+開発サーバーを起動します。
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで以下を開いて確認してください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## よく使うコマンド
 
-## Learn More
+```bash
+# 開発用サーバー起動
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# 本番用ビルド
+npm run build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# ビルド済みアプリを起動
+npm run start
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Lint 実行
+npm run lint
+```
 
-## Deploy on Vercel
+## このサイトを自分用に調整する方法
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+この README とコードは、あなたの情報に合わせてそのまま使えるよう設計されています。
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+主に次の部分を更新してください。
+
+- 自己紹介文
+- 名前や肩書き
+- スキル一覧
+- 実績や制作物
+- GitHub / X / Qiita / LinkedIn などのリンク
+- 連絡先メールアドレス
+- 好きなテーマカラーやデザイン
+
+主な編集箇所は以下です。
+
+- src/app/page.tsx
+- src/app/globals.css
+- src/app/layout.tsx
+
+
+## 今後の更新予定
+
+- 自分の自己紹介文を具体化する
+- 実績やプロジェクトを追加する
+- GitHub や技術ブログのリンクを掲載する
+- ダークモードやアニメーションを追加する
+
