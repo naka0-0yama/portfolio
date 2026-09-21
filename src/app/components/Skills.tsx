@@ -1,3 +1,5 @@
+'use client';
+import { motion } from "framer-motion";
 const skillCategories = [
   {
     title: 'Low-Level / Systems',
@@ -44,13 +46,28 @@ const skillCategories = [
 
 export default function SkillsPage() {
   return (
-    <section id="skills" className="py-16 max-w-3xl mx-auto px-4">
-        <h2 className="text-2xl font-bold tracking-tight mb-8 text-zinc-100 border-b border-zinc-800 pb-4">
+    <motion.section 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+        id="skills" 
+        className="py-16 max-w-3xl mx-auto px-4"
+    >
+      <h2 className="text-2xl font-bold tracking-tight mb-8 text-zinc-100 border-b border-zinc-800 pb-4">
         Skills
       </h2>
       <div className="space-y-12">
         {skillCategories.map((category, index) => (
-          <div key={index} className="border-l-2 border-zinc-700 pl-4 sm:pl-6">
+          <motion.div 
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }} 
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                id="skills" 
+                className="py-16 max-w-3xl mx-auto px-4"
+            >
             <h3 className="text-lg font-semibold text-zinc-200">
               {category.title}
             </h3>
@@ -59,17 +76,19 @@ export default function SkillsPage() {
             </p>
             <div className="flex flex-wrap gap-2">
               {category.skills.map((skill, sIndex) => (
-                <span
+                <motion.span
                   key={sIndex}
-                  className="px-3 py-1 text-xs font-mono font-medium bg-zinc-900 text-zinc-300 rounded border border-zinc-800 hover:border-zinc-600 transition-colors"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-3 py-1 text-xs font-mono font-medium bg-zinc-900 text-zinc-300 rounded border border-zinc-800 hover:border-zinc-500 hover:text-zinc-100 transition-colors cursor-default"
                 >
                   {skill}
-                </span>
+                </motion.span>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }
