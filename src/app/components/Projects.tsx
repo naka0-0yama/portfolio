@@ -39,12 +39,12 @@ export default function ProjectsPage() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         id="projects" 
-        className="py-16 max-w-3xl mx-auto px-4"
+        className="py-16 max-w-5xl mx-auto px-4"
     >
       <h2 className="text-2xl font-bold tracking-tight mb-8 text-zinc-100 border-b border-zinc-800 pb-4">
         Projects
       </h2>
-      <div className="space-y-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {Projects.map((category, index) => (
           <motion.div 
                 key={index}
@@ -52,32 +52,43 @@ export default function ProjectsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }} 
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                id="projects" 
-                className="py-16 max-w-3xl mx-auto px-4"
+                id="projects"
             >
-            <h3 className="text-lg font-semibold text-zinc-200">
-              {category.title}
-            </h3>
             {category.isPrivate ? (
-              <div className="mt-4 rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4">
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-2 text-zinc-200">
-                    <span className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-zinc-800 text-zinc-300">
-                      <RepoIcon size={16} />
+              <div className="group mt-4 rounded-2xl border border-zinc-800 bg-zinc-950/70 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)]">
+                <div className="flex items-center justify-between gap-3 border-b border-zinc-800 pb-3">
+                  <div className="flex min-w-0 items-center gap-3 text-zinc-100">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-amber-500/15 text-amber-300">
+                      <RepoIcon size={14} />
                     </span>
-                    <span className="font-medium">{category.title}</span>
+                    <span className="truncate text-sm font-medium">Private Repository</span>
                   </div>
 
-                  <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-amber-300">
+                  <span className="rounded-full border border-amber-500/40 bg-amber-500/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-amber-300">
                     Private
                   </span>
                 </div>
 
-                <p className="mt-3 text-sm text-zinc-400">{category.description}</p>
+                <div className="pt-4">
+                  <h4 className="text-xl font-semibold text-zinc-50">{category.title}</h4>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400">{category.description}</p>
+                </div>
 
-                <div className="mt-3 flex items-center justify-between text-xs text-zinc-500">
-                  <span>Private Project</span>
-                  <span className="text-zinc-400">In Progress</span>
+                <div className="mt-4 border-t border-zinc-800 pt-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, sIndex) => (
+                        <span
+                          key={sIndex}
+                          className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-zinc-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="text-sm font-medium text-zinc-400">In Progress</span>
+                  </div>
                 </div>
               </div>
             ) : null}
@@ -86,51 +97,48 @@ export default function ProjectsPage() {
                 href={category.repoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group mt-4 block rounded-2xl border border-zinc-800 bg-zinc-950/60 p-4 transition-colors hover:border-blue-500/60 hover:bg-zinc-900"
+                className="group mt-4 block rounded-2xl border border-zinc-800 bg-zinc-950/70 p-4 shadow-[0_0_0_1px_rgba(255,255,255,0.02)] transition-colors hover:border-blue-500/60 hover:bg-zinc-900"
               >
-                <div className="flex items-center gap-3">
-                  <Image
-                    src={`https://github.com/${category.repoPath.split('/')[0]}.png`}
-                    alt="GitHub Avatar"
-                    width={40}
-                    height={40}
-                    className="h-10 w-10 rounded-full border border-zinc-700 object-cover"
-                  />
+                <div className="flex items-center justify-between gap-3 border-b border-zinc-800 pb-3">
+                  <div className="flex min-w-0 items-center gap-3 text-zinc-100">
+                    <span className="inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-400">
+                      <RepoIcon size={14} />
+                    </span>
+                    <span className="truncate text-sm font-medium">{category.repoPath}</span>
+                  </div>
 
-                  <div className="min-w-0 flex-1">
-                    <div className="flex items-center justify-between gap-2 text-zinc-100">
-                      <div className="flex min-w-0 items-center gap-2">
-                        <RepoIcon size={16} />
-                        <span className="truncate font-medium">{category.repoPath}</span>
-                      </div>
-
-                      <span className="shrink-0 rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.12em] text-emerald-300">
-                        Public
-                      </span>
-                    </div>
+                  <div className="flex items-center gap-2 text-xs text-zinc-300">
+                    <span className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-2 py-1 font-semibold uppercase tracking-[0.12em] text-emerald-300">
+                      Public
+                    </span>
                   </div>
                 </div>
 
-                <p className="mt-3 text-sm text-zinc-400">{category.description}</p>
+                <div className="pt-4">
+                  <h4 className="text-xl font-semibold text-zinc-50">{category.title}</h4>
+                  <p className="mt-3 text-sm leading-6 text-zinc-400">{category.description}</p>
+                </div>
 
-                <div className="mt-3 flex items-center justify-between text-xs text-zinc-500">
-                  <span>GitHub Repository</span>
-                  <span className="group-hover:text-blue-400">View →</span>
+                <div className="mt-4 border-t border-zinc-800 pt-4">
+                  <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="flex flex-wrap gap-2">
+                      {category.skills.map((skill, sIndex) => (
+                        <span
+                          key={sIndex}
+                          className="rounded-full border border-zinc-700 bg-zinc-900 px-2.5 py-1 text-[10px] font-medium uppercase tracking-[0.08em] text-zinc-300"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+
+                    <span className="text-sm font-medium text-zinc-300 group-hover:text-blue-400">
+                      View ↗
+                    </span>
+                  </div>
                 </div>
               </Link>
             ) : null}
-            <div className="flex flex-wrap gap-2">
-              {category.skills.map((skill, sIndex) => (
-                <motion.span
-                  key={sIndex}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-3 py-1 text-xs font-mono font-medium bg-zinc-900 text-zinc-300 rounded border border-zinc-800 hover:border-zinc-500 hover:text-zinc-100 transition-colors cursor-default"
-                >
-                  {skill}
-                </motion.span>
-              ))}
-            </div>
           </motion.div>
         ))}
       </div>
