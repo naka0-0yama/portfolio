@@ -52,7 +52,7 @@ export default function SkillsPage() {
         viewport={{ once: true }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
         id="skills" 
-        className="py-16 max-w-3xl mx-auto px-4"
+        className="py-16 max-w-5xl mx-auto px-4"
     >
       <h2 className="text-2xl font-bold tracking-tight mb-8 text-zinc-100 border-b border-zinc-800 pb-4">
         Skills
