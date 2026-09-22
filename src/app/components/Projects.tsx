@@ -16,18 +16,19 @@ export type Project = {
 export const Projects: Project[] = [
   {
     title: 'Operating System',
-    description: 'rust',
-    skills: ['C', 'Assembly', 'OS Kernel'],
+    description: 'x86_64アーキテクチャをターゲットにした自作OSカーネルの開発。メモリ管理、割り込み処理、低レイヤーの制御を実装中。',
+    skills: ['Rust', 'Assembly', 'OS Kernel'],
     repoPath: 'naka0-0yama/os',
     repoUrl: 'https://github.com/naka0-0yama/os',
     isPrivate: false,
   },
   {
-    title: 'test',
-    description: 'test(private)',
-    skills: ['C', 'OS Kernel', 'Networking'],
-    status: 'Implementing',
-    isPrivate: true, // 非公開フラグ
+    title: 'Portfolio Website',
+    description: 'Next.js (App Router) と Tailwind CSS を用いた、モダンな個人開発ポートフォリオサイト。',
+    skills: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    repoPath: 'naka0-0yama/portfolio',
+    repoUrl: 'https://github.com/naka0-0yama/portfolio',
+    isPrivate: false,
   },
 ];
 
